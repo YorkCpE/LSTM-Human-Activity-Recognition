@@ -107,8 +107,6 @@ if __name__ == "__main__":
 
 	# Useful Constants
 
-	print 'Hello World!!'
-
 	# Those are separate normalised input features for the neural network
 	INPUT_SIGNAL_TYPES = [
 	    "body_acc_x_",
@@ -174,7 +172,7 @@ if __name__ == "__main__":
 
 	learning_rate = 0.0025
 	lambda_loss_amount = 0.0015
-	training_iters = training_data_count * 300  # Loop 300 times on the dataset
+	training_iters = training_data_count * 10  # Loop 300 times on the dataset
 	batch_size = 1500
 	display_iter = 30000  # To show test set accuracy during training
 
