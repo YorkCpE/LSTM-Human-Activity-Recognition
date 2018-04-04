@@ -1,0 +1,1 @@
+If error occurs during plot framework make sure to use framework_python rather than python. Fix must be installed on OSX system.
