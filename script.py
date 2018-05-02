@@ -7,6 +7,33 @@ import tensorflow as tf  # Version 1.0.0 (some previous versions are used in pas
 from sklearn import metrics
 
 import os
+def new_load_X(X_signals_paths):
+	X_signals = []
+
+	for signal_type_path in X_signals_paths:
+		file = open(signal_type_path, 'r')
+		# Read dataset from disk, dealing with text files' syntax
+
+		file_data = list()
+		for row in file:
+			line = row.replace('  ', ' ').strip().split(' ') #creates a list with 128 elements
+
+			file_data.append(line)
+
+		array = np.array(file_data, dtype=np.float32)
+		X_signals.append(array)
+
+		#X_signals.append(
+		#    [np.array(serie, dtype=np.float32) for serie in [
+		#        row.replace('  ', ' ').strip().split(' ') for row in file
+		#    ]]
+		#)
+		file.close()
+
+	array = np.array(X_signals)
+	#np.savetxt('data.csv',array,delimiter=",")
+	transpose = np.transpose(array, (1, 2, 0))
+	return transpose
 
 
 # Load "X" (the neural network's training and testing inputs)
